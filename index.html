@@ -3,9 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
     <title>Animated Forms</title>
 </head>
 <body>
-    
+    <form class="login-form">
+        <fieldset>
+            <label for="username"> Username: </label>
+            <input type="text" id="username" name="username" />
+        </fieldset>
+        <fieldset>
+            <label for="password"> Password: </label>
+            <input type="password" id="password" name="password" />
+        </fieldset>
+        <button class="btn" id="login-btn"> Register </button>
+    </form>
+    <form class="register-form">
+        <fieldset>
+            <label for="username"> Username: </label>
+            <input type="text" id="username" name="username" />
+        </fieldset>
+        <fieldset>
+            <label for="email"> Email: </label>
+            <input type="text" id="email" name="email" />
+        </fieldset>
+        <fieldset>
+            <label for="phone"> Phone Number: </label>
+            <input type="number" id="phone" name="phone" />
+        </fieldset>
+        <fieldset>
+            <label for="password"> Password: </label>
+            <input type="password" id="password" name="password" />
+        </fieldset>
+        <button class="btn" id="register-btn"> Register </button>
+    </form>
 </body>
 </html>
