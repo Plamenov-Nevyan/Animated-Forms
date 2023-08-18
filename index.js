@@ -1,6 +1,7 @@
 $(document).ready(function(){
 initFormSlideAnims()
 initBtnRippleAnim()
+initTacModal()
 
 function initFormSlideAnims(){
     $('#redirect-register').click(function(){
@@ -50,6 +51,13 @@ function initBtnRippleAnim(){
         easing: 'linear',
         color: "rgba(252,70,199,0.9276960784313726)",
         detectBrightness: true
+    })
+}
+function initTacModal(){
+    $('.open-dialog-span').click(function(){
+        $('.tac-section').modal({
+            fadeDuration: 150
+        })
     })
 }
 })

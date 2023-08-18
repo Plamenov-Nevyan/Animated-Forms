@@ -10,6 +10,16 @@ body {
   animation: gradient-bg 20s ease infinite;
 }
 
+.tac-section {
+  display: none;
+  max-height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.tac-section ul li {
+  font-size: 1.8rem;
+}
+
 .form-el {
   position: absolute;
   top: 20%;
