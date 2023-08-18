@@ -3,6 +3,9 @@ initFormSlideAnims()
 initBtnRippleAnim()
 initTacModal()
 
+$('#register-btn').click(onRegister)
+$('#login-btn').click(onLogin)
+
 function initFormSlideAnims(){
     $('#redirect-register').click(function(){
         $('.login-form').animate({
@@ -58,6 +61,18 @@ function initTacModal(){
         $('.tac-section').modal({
             fadeDuration: 150
         })
+    })
+}
+function onRegister(){
+    $('#success-message').text('Congratulations! Your registration was successfull !')
+    $('.action-success').modal({
+        fadeDuration: 150
+    })
+}
+function onLogin(){
+    $('#success-message').text('Login is successfull !')
+    $('.action-success').modal({
+        fadeDuration: 150
     })
 }
 })

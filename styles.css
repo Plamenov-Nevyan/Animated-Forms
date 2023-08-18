@@ -20,6 +20,15 @@ body {
   font-size: 1.8rem;
 }
 
+.action-success {
+  display: none;
+}
+.action-success svg {
+  top: 0.3em;
+  right: -2em;
+  position: absolute;
+}
+
 .form-el {
   position: absolute;
   top: 20%;
