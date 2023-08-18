@@ -86,12 +86,8 @@ body {
   color: azure;
 }
 .login-form #login-btn {
-  background: cornflowerblue;
-  color: azure;
-}
-.login-form #login-btn:hover {
-  background: azure;
-  color: cornflowerblue;
+  background: rgb(212, 251, 63);
+  background: radial-gradient(circle, rgb(212, 251, 63) 32%, rgb(252, 176, 70) 68%);
 }
 
 .register-form {
@@ -134,13 +130,9 @@ body {
 .register-form p span:hover svg {
   display: inline;
 }
-.register-form button {
-  background-color: #6658D3;
-  color: azure;
-}
-.register-form button:hover {
-  background-color: rgb(208, 222, 222);
-  color: #6658D3;
+.register-form #register-btn {
+  background: rgb(63, 251, 135);
+  background: radial-gradient(circle, rgb(63, 251, 135) 32%, rgba(252, 70, 199, 0.9276960784) 68%);
 }
 .register-form .tac-span {
   font-size: 1.2rem;

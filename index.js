@@ -1,4 +1,8 @@
 $(document).ready(function(){
+initFormSlideAnims()
+initBtnRippleAnim()
+
+function initFormSlideAnims(){
     $('#redirect-register').click(function(){
         $('.login-form').animate({
             opacity: 0,
@@ -33,5 +37,19 @@ $(document).ready(function(){
         'linear'
         )
     })
-
+}
+function initBtnRippleAnim(){
+    $('#login-btn').rippleria({
+        duration: 750,
+        easing: 'linear',
+        color: "#FFFF00",
+        detectBrightness: true
+    })
+    $('#register-btn').rippleria({
+        duration: 750,
+        easing: 'linear',
+        color: "#49920F",
+        detectBrightness: true
+    })
+}
 })
