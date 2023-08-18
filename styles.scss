@@ -24,6 +24,7 @@ body {
 
 .action-success {
     display: none;
+    min-height: 10vh;
     svg {
         top: 0.3em;
          right: -2em;
@@ -49,12 +50,22 @@ body {
         display: flex;
         flex-direction: column;
         gap: .3em;
+        position: relative;
         input {
             padding: .6em  .5em;
             border: none;
         }
+        input:focus + label,
+        input + label.static {
+            transform: translateY(-1em);
+        }
         label {
             padding: 0 .4em;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: transform 200ms ease;
+            pointer-events: none;
         }
     }
     .btn {

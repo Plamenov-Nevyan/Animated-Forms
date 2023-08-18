@@ -2,6 +2,7 @@ $(document).ready(function(){
 initFormSlideAnims()
 initBtnRippleAnim()
 initTacModal()
+initFloatingLabels()
 
 $('#register-btn').click(onRegister)
 $('#login-btn').click(onLogin)
@@ -63,16 +64,35 @@ function initTacModal(){
         })
     })
 }
+function initFloatingLabels(){
+    $('.input-field').each(function(){
+        let field = $(this)
+        let input = field.find('input')
+        let label = field.find('label')
+        input.change(function(){
+            input.val().length > 0 ? label.addClass('static') : label.removeClass('static')
+        })
+    })
+}
+
 function onRegister(){
     $('#success-message').text('Congratulations! Your registration was successfull !')
     $('.action-success').modal({
         fadeDuration: 150
     })
+    $('#success-check').toggle("bounce", {times: 3}, "slow")
 }
 function onLogin(){
-    $('#success-message').text('Login is successfull !')
     $('.action-success').modal({
         fadeDuration: 150
+    })
+    $('#success-check').toggle("bounce", {times: 3}, "slow")
+    setTimeout(() => {
+        $('#success-message').text('Login is successfull !')
+    }, 1000)
+
+    $('.close-modal').click(function(){
+        $('#success-message').text('')
     })
 }
 })
