@@ -86,8 +86,14 @@ body {
   color: azure;
 }
 .login-form #login-btn {
-  background: rgb(212, 251, 63);
-  background: radial-gradient(circle, rgb(212, 251, 63) 32%, rgb(252, 176, 70) 68%);
+  background: linear-gradient(to left, rgb(212, 251, 63) 32%, rgb(252, 176, 70) 68%);
+  background-size: 200% 100%;
+  background-position: left bottom;
+  transition: ease-in-out 200ms;
+  transition: all 600ms ease;
+}
+.login-form #login-btn:hover {
+  background-position: right bottom;
 }
 
 .register-form {
@@ -131,8 +137,14 @@ body {
   display: inline;
 }
 .register-form #register-btn {
-  background: rgb(63, 251, 135);
-  background: radial-gradient(circle, rgb(63, 251, 135) 32%, rgba(252, 70, 199, 0.9276960784) 68%);
+  background: linear-gradient(to left, rgb(63, 251, 135) 32%, rgba(252, 70, 199, 0.9276960784) 68%);
+  background-size: 200% 100%;
+  background-position: left bottom;
+  transition: ease-in-out 200ms;
+  transition: all 600ms ease;
+}
+.register-form #register-btn:hover {
+  background-position: right bottom;
 }
 .register-form .tac-span {
   font-size: 1.2rem;

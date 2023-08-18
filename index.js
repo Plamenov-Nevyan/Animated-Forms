@@ -42,13 +42,13 @@ function initBtnRippleAnim(){
     $('#login-btn').rippleria({
         duration: 750,
         easing: 'linear',
-        color: "#FFFF00",
+        color: "rgba(252,176,70,1)",
         detectBrightness: true
     })
     $('#register-btn').rippleria({
         duration: 750,
         easing: 'linear',
-        color: "#49920F",
+        color: "rgba(252,70,199,0.9276960784313726)",
         detectBrightness: true
     })
 }
