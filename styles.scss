@@ -1,7 +1,6 @@
 body {
+    position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
     min-width: 100svw;
     min-height: 100svh;
     overflow: hidden;
@@ -12,6 +11,9 @@ body {
 }
 
 .form-el {
+    position: absolute;
+    top: 20%;
+    left: 35%;
     min-width: 30vw;
     min-height: 50vh;
     display: flex;
@@ -98,6 +100,9 @@ body {
 }
 
 .register-form {
+    opacity: 0;
+    top: 0;
+    left: 65%;
     .heading {
         h2 {
             color: #6658D3;
