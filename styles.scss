@@ -1,0 +1,173 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100svw;
+    min-height: 100svh;
+    overflow: hidden;
+    gap: 2em;
+    background: linear-gradient(-45deg, #ffeb3b, #74efff, #9c27b0);
+    background-size: 400% 400%;
+    animation: gradient-bg 20s ease infinite;
+}
+
+.form-el {
+    min-width: 30vw;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    padding: 2em;
+    background: #eee;
+    border-radius: 0.7em;
+    justify-content: center;
+    fieldset {
+        border: none;
+        display: flex;
+        flex-direction: column;
+        gap: .3em;
+        input {
+            padding: .6em  .5em;
+            border: none;
+        }
+        label {
+            padding: 0 .4em;
+        }
+    }
+    .btn {
+        max-width: 30%;
+        padding: 0.5em 1em;
+        border-radius: 0.5em;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        transition: ease-in-out 200ms;
+    }
+}
+
+.login-form {
+    background-color: #15172B;
+    .heading {
+        h2 {
+            color: azure;
+        }
+    }
+    p {
+        color: azure;
+        span {
+            color: orchid;
+            cursor: pointer;
+            svg {
+                max-width: 1em;
+                max-height: 1em;
+                fill: orchid;
+                display: none;
+            }
+        }
+        span:hover {
+            text-decoration: underline;
+            svg {
+                display: inline;
+            }
+        }
+    }
+    fieldset {
+        input {
+            background-color: transparent;
+            color: azure;
+            outline: none;
+            border-bottom: 2px solid azure;
+            opacity: .3;
+        }
+        input:focus {
+            opacity: 1;
+        }
+        label {
+            color: azure;
+        }
+    }
+    #login-btn {
+        background: cornflowerblue;
+        color: azure;
+    }
+
+    #login-btn:hover {
+        background: azure;
+        color: cornflowerblue;
+    }
+}
+
+.register-form {
+    .heading {
+        h2 {
+            color: #6658D3;
+        }
+    }
+    fieldset {
+        label {
+            color: cornflowerblue;
+        }
+        input {
+            background-color: transparent;
+            color: black;
+            outline: none;
+            border-bottom: 2px solid cornflowerblue;
+            opacity: .3;
+        }
+        input:focus {
+            opacity: 1;
+        }
+    }
+    p {
+        color: cornflowerblue;
+        span {
+            color: orchid;
+            cursor: pointer;
+            svg {
+                fill: orchid;
+                max-width: 1em;
+                max-height: 1em;
+                display: none;
+            }
+        }
+        span:hover {
+            text-decoration: underline;
+            svg {
+                display: inline;
+            }
+        }
+    }
+    button {
+        background-color: #6658D3;
+        color: azure;
+    }
+    button:hover {
+        background-color: rgb(208, 222, 222);
+        color: #6658D3;
+    }
+    .tac-span {
+        font-size: clamp(1rem, 1.2rem, 1.5rem);
+        font-style: italic;
+        display: block;
+        margin: 0 auto;
+        .open-dialog-span {
+            color: orchid;
+            cursor: pointer;
+        }
+        .open-dialog-span:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+@keyframes gradient-bg {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

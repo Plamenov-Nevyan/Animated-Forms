@@ -1,1 +1,162 @@
-/*# sourceMappingURL=styles.css.map */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100svw;
+  min-height: 100svh;
+  overflow: hidden;
+  gap: 2em;
+  background: linear-gradient(-45deg, #ffeb3b, #74efff, #9c27b0);
+  background-size: 400% 400%;
+  animation: gradient-bg 20s ease infinite;
+}
+
+.form-el {
+  min-width: 30vw;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  padding: 2em;
+  background: #eee;
+  border-radius: 0.7em;
+  justify-content: center;
+}
+.form-el fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+}
+.form-el fieldset input {
+  padding: 0.6em 0.5em;
+  border: none;
+}
+.form-el fieldset label {
+  padding: 0 0.4em;
+}
+.form-el .btn {
+  max-width: 30%;
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: ease-in-out 200ms;
+}
+
+.login-form {
+  background-color: #15172B;
+}
+.login-form .heading h2 {
+  color: azure;
+}
+.login-form p {
+  color: azure;
+}
+.login-form p span {
+  color: orchid;
+  cursor: pointer;
+}
+.login-form p span svg {
+  max-width: 1em;
+  max-height: 1em;
+  fill: orchid;
+  display: none;
+}
+.login-form p span:hover {
+  text-decoration: underline;
+}
+.login-form p span:hover svg {
+  display: inline;
+}
+.login-form fieldset input {
+  background-color: transparent;
+  color: azure;
+  outline: none;
+  border-bottom: 2px solid azure;
+  opacity: 0.3;
+}
+.login-form fieldset input:focus {
+  opacity: 1;
+}
+.login-form fieldset label {
+  color: azure;
+}
+.login-form #login-btn {
+  background: cornflowerblue;
+  color: azure;
+}
+.login-form #login-btn:hover {
+  background: azure;
+  color: cornflowerblue;
+}
+
+.register-form .heading h2 {
+  color: #6658D3;
+}
+.register-form fieldset label {
+  color: cornflowerblue;
+}
+.register-form fieldset input {
+  background-color: transparent;
+  color: black;
+  outline: none;
+  border-bottom: 2px solid cornflowerblue;
+  opacity: 0.3;
+}
+.register-form fieldset input:focus {
+  opacity: 1;
+}
+.register-form p {
+  color: cornflowerblue;
+}
+.register-form p span {
+  color: orchid;
+  cursor: pointer;
+}
+.register-form p span svg {
+  fill: orchid;
+  max-width: 1em;
+  max-height: 1em;
+  display: none;
+}
+.register-form p span:hover {
+  text-decoration: underline;
+}
+.register-form p span:hover svg {
+  display: inline;
+}
+.register-form button {
+  background-color: #6658D3;
+  color: azure;
+}
+.register-form button:hover {
+  background-color: rgb(208, 222, 222);
+  color: #6658D3;
+}
+.register-form .tac-span {
+  font-size: 1.2rem;
+  font-style: italic;
+  display: block;
+  margin: 0 auto;
+}
+.register-form .tac-span .open-dialog-span {
+  color: orchid;
+  cursor: pointer;
+}
+.register-form .tac-span .open-dialog-span:hover {
+  text-decoration: underline;
+}
+
+@keyframes gradient-bg {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}/*# sourceMappingURL=styles.css.map */
