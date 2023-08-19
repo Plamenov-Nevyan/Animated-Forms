@@ -5,12 +5,16 @@ initTacModal()
 initFloatingLabels()
 initToolTips()
 initAddMediaLinkBtnsAndInput()
+clearErrorOnFocus()
 
 $('#register-btn').click(onRegister)
 $('#login-btn').click(onLogin)
 
+
+
 function initFormSlideAnims(){
     $('#redirect-register').click(function(){
+        clearAllErrors()
         $('.login-form').animate({
             opacity: 0,
             marginLeft: '-300px'
@@ -28,6 +32,7 @@ function initFormSlideAnims(){
     })
  
     $('#redirect-login').click(function(){
+        clearAllErrors()
         $('.register-form').animate({
             opacity: 0,
             marginLeft: '400px'
@@ -85,8 +90,23 @@ function initFloatingLabels(){
         })
     })
 }
-
 function onRegister(){
+  let errors = validator({
+    username: $('#username').val(),
+    email: $('#email').val(),
+    phone: $('#phone').val(),
+    password: $('#password').val()
+  }, 'register')
+  if(Object.values(errors).some(error => error !== '')){
+    Object.entries(errors).forEach(([key, value]) => {
+        console.log(key)
+        console.log(value)
+       if(value !== ''){
+        $(`#${key}`).addClass('error').effect("shake", {times: 4}, 700)
+        $(`#${key}-error`).text(value).slideDown("fast")
+       }
+    })
+  }else {
     $('.action-success').modal({
         fadeDuration: 150
     })
@@ -116,8 +136,22 @@ function onRegister(){
         'linear'
         )
     })
+  }
 }
 function onLogin(){
+    let errors = validator({
+    'username-login': $('#username-login').val(),
+    'password-login': $('#password-login').val()
+    }, 'login')
+    if(Object.values(errors).some(error => error !== '')){
+        Object.entries(errors).forEach(([key, value]) => {
+            if(value !== ''){
+           console.log(errors)
+        $(`#${key}`).addClass('error').effect("shake", {times: 4}, 700)
+        $(`#${key}-error`).text(value).slideDown("fast")
+       }
+    })
+ }else {
     $('.action-success').modal({
         fadeDuration: 150
     })
@@ -129,8 +163,8 @@ function onLogin(){
     $('.success-action').on($.modal.BEFORE_CLOSE, () => {
         $('#success-message').text('')
     })
+ }
 }
-
 function initToolTips(){
     $('.media-item').each(function(){
         let tooltip = $(this).find('.tooltip')
@@ -149,7 +183,6 @@ function initToolTips(){
         })
     })
 }
-
 function initAddMediaLinkBtnsAndInput(){
     $('.media-item').each(function(){
         let iconAndInput = $(this).find('.icon-and-input')
@@ -200,6 +233,61 @@ function initAddMediaLinkBtnsAndInput(){
             })
 
         })
+    })
+}
+
+function validator(inputValues, action){
+    let errors = {}
+    let isThereEmptyFields = checkForEmptyFields(action) 
+    if(isThereEmptyFields){return errors}
+    let emailValRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+    let passwordValRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
+    if(action === 'register'){
+        errors.username = inputValues.username.length > 4 ? '' : 'Username must be at least 4 characters long!'
+        errors.email = emailValRegex.test(inputValues.email) ? '' : 'Please enter a valid email !'
+        errors.password = inputValues.password.length > 6 && passwordValRegex.test(inputValues.password) 
+        ? '' 
+        : 'Password must be at least 6 characters long and contain at least one letter and one number !'
+    }else if (action === 'login'){
+        errors["username-login"] = inputValues.username.length > 4 ? '' : 'Username must be at least 4 characters long!'
+        errors["password-login"] = inputValues.password.length > 6 && passwordValRegex.test(inputValues.password) 
+        ? '' 
+        : 'Password must be at least 6 characters long and contain at least one letter and one number !'
+    }
+
+    return errors
+
+    function checkForEmptyFields(action){
+        let isThereEmptyFields = false;
+        Object.entries(inputValues).forEach(([key, value]) => {
+            if(value === ''){
+                action === 'register' 
+                ? errors[key] = `Please fill the required ${key} field !` 
+                : errors[key] = `Please fill the required ${key.split('-')[0]} field !` 
+                isThereEmptyFields = true
+            }
+        })
+        return isThereEmptyFields
+    }
+} 
+
+function clearErrorOnFocus(){
+    $('.user-data-input').each(function(){
+        $(this).focus(function(){
+            if($(this).hasClass('error')){
+                $(this).removeClass('error')
+                $(`#${$(this).attr('id')}-error`).slideUp('slow')
+            }
+        })
+    })
+}
+
+function clearAllErrors(){
+    $('.user-data-input').each(function(){
+        if($(this).hasClass('error')){
+            $(this).removeClass('error')
+            $(`#${$(this).attr('id')}-error`).slideUp('slow')
+        }
     })
 }
 })

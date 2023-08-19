@@ -63,6 +63,14 @@ body {
                 padding: .6em  .5em;
                 border: none;
             }
+            input.error {
+                border: 2px solid red;
+                border-radius: .6em;
+            }
+            .error-message {
+                display: none;
+                color: red;
+            }
             input:focus + label,
             input + label.static {
                 transform: translateY(-1em);

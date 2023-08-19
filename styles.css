@@ -62,6 +62,14 @@ body {
   padding: 0.6em 0.5em;
   border: none;
 }
+.forms-page .form-el fieldset input.error {
+  border: 2px solid red;
+  border-radius: 0.6em;
+}
+.forms-page .form-el fieldset .error-message {
+  display: none;
+  color: red;
+}
 .forms-page .form-el fieldset input:focus + label,
 .forms-page .form-el fieldset input + label.static {
   transform: translateY(-1em);
