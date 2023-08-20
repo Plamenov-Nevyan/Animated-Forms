@@ -323,7 +323,57 @@ body {
   margin-top: 300px;
   min-width: 100vw;
   min-height: 100vh;
-  background-color: white;
+  background: coral;
+}
+.accordions-page .accordions-wrapper {
+  max-width: 60%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  padding: 2em;
+  background: aliceblue;
+  height: -moz-fit-content;
+  height: fit-content;
+  max-height: 100vh;
+  overflow-y: scroll;
+}
+.accordions-page .accordions-wrapper .accordion {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  background: antiquewhite;
+}
+.accordions-page .accordions-wrapper .accordion .accordion-header {
+  display: flex;
+  gap: 2em;
+  padding: 0.4em;
+  background: rgb(251, 63, 199);
+  background: radial-gradient(circle, rgb(251, 63, 199) 42%, rgba(252, 146, 70, 0.9276960784) 68%);
+  background-size: 200% 100%;
+  border-bottom: 2px solid gray;
+  border-radius: 0.5em 0.5em 0 0;
+  cursor: pointer;
+  background-position: center;
+  transition: ease-in-out 200ms;
+  transition: all 600ms ease;
+}
+.accordions-page .accordions-wrapper .accordion .accordion-header svg {
+  max-width: 2em;
+  max-height: 2em;
+}
+.accordions-page .accordions-wrapper .accordion .accordion-header:hover {
+  background-size: 100% 200%;
+  background-position: center;
+}
+.accordions-page .accordions-wrapper .accordion .accordion-body {
+  background: lightgray;
+  padding: 0.4em;
+  border-radius: 0 0 0.5em 0.5em;
+  display: none;
+}
+.accordions-page .accordions-wrapper .accordion .accordion-body.open {
+  display: block;
 }
 
 @keyframes gradient-bg {

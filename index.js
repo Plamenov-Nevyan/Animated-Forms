@@ -6,6 +6,7 @@ initFloatingLabels()
 initToolTips()
 initAddMediaLinkBtnsAndInput()
 clearErrorOnFocus()
+onOpenAccordion()
 
 $('#register-btn').click(onRegister)
 $('#login-btn').click(onLogin)
@@ -135,6 +136,9 @@ function onRegister(){
         'slow',
         'linear'
         )
+        .css({
+            'z-index': 1
+        })
     })
   }
 }
@@ -162,6 +166,25 @@ function onLogin(){
 
     $('.success-action').on($.modal.BEFORE_CLOSE, () => {
         $('#success-message').text('')
+    })
+    $('.action-success').on($.modal.AFTER_CLOSE, () => {
+        $('.forms-page').animate({
+            opacity: 0,
+            marginTop: '-300px'
+        },
+        'slow',
+        'linear',
+        )
+        $('.accordions-page').animate({
+            opacity: 1,
+            marginTop: '0'
+        },
+        'slow',
+        'linear'
+        )
+        .css({
+            'z-index': 1
+        })
     })
  }
 }
@@ -249,8 +272,8 @@ function validator(inputValues, action){
         ? '' 
         : 'Password must be at least 6 characters long and contain at least one letter and one number !'
     }else if (action === 'login'){
-        errors["username-login"] = inputValues.username.length > 4 ? '' : 'Username must be at least 4 characters long!'
-        errors["password-login"] = inputValues.password.length > 6 && passwordValRegex.test(inputValues.password) 
+        errors["username-login"] = inputValues["username-login"].length > 4 ? '' : 'Username must be at least 4 characters long!'
+        errors["password-login"] = inputValues["password-login"].length > 6 && passwordValRegex.test(inputValues["password-login"]) 
         ? '' 
         : 'Password must be at least 6 characters long and contain at least one letter and one number !'
     }
@@ -288,6 +311,31 @@ function clearAllErrors(){
             $(this).removeClass('error')
             $(`#${$(this).attr('id')}-error`).slideUp('slow')
         }
+    })
+}
+
+function onOpenAccordion(){
+    $('.accordion').each(function(){
+        let header = $(this).find($('.accordion-header'))
+        let body = $(this).find($('.accordion-body'))
+        $(header).hover(function(){
+            let svg = $(header).find('.acc-icon')
+            let title = $(header).find('.acc-title')
+            $(title).animate({marginRight: '1em'}, "fast")
+            $(svg).animate({marginRight: '2em'}, "fast")
+        })
+        $(header).click(function(){
+            if(!$(body).hasClass('open')){
+                $('.accordion-body').each(function(){
+                    if($(this).hasClass('open')){
+                        $(this).slideUp("fast").removeClass('open')
+                    }
+                })
+                $(body).slideDown("fast").addClass('open')
+            }else {
+                $(body).slideUp("fast").removeClass('open')
+            }
+        })
     })
 }
 })
