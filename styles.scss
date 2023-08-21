@@ -1,3 +1,5 @@
+@import "./breakpoints.scss" ;
+
 body {
     position: relative;
     display: flex;
@@ -36,7 +38,9 @@ body {
             top: 0.3em;
              right: -2em;
             position: absolute;
-            z-index: 2;
+            z-index: 10;
+            width: 1em;
+            height: 1em;
         }
     }
     
@@ -97,6 +101,12 @@ body {
     
     .login-form {
         background-color: #15172B;
+        @include sm {
+            transform: translate(-30%, -20%);
+        }
+        @include lg {
+            transform: translate(-20%, -20%);
+        }
         .heading {
             h2 {
                 color: azure;
@@ -137,6 +147,9 @@ body {
             }
         }
         #login-btn {
+            @include md {
+                max-width: 100%;
+            }
             background: linear-gradient(to left, rgba(212,251,63,1) 32%, rgba(252,176,70,1) 68%);
             background-size: 200% 100%;
             background-position:left bottom;
@@ -153,6 +166,21 @@ body {
         top: 0;
         left: 65%;
         gap: 1em;
+        @include lg {
+            left: 80%;
+            max-width: 90vw;
+            display: flex;
+            flex-direction: column;
+        }
+        @include md {
+            left: 85.5%;
+        }
+        @include lsm {
+            left: 100%;
+        }
+        @include sm {
+            left: 137%;
+        }
         .heading {
             h2 {
                 color: #6658D3;
@@ -164,12 +192,15 @@ body {
                 // align-items: center;
                 list-style-type: none;
                 justify-content: space-evenly;
+                @include md {
+                   
+                }
                 gap: 1em;
                 li {
                     display: flex;
                     flex-direction: column;
                     gap: 1em;
-                    flex: 1 1 33%;
+                    flex: 0 1 33%;
                     .icon-and-add-btn {
                         display: flex;
                         align-items: center;
@@ -332,6 +363,9 @@ body {
         background-position:left bottom;
         transition: ease-in-out 200ms;
         transition:all 600ms ease;
+        @include lsm {
+            max-width: 100%;
+        }
       }
       #register-btn:hover {
         background-position:right bottom;
@@ -360,7 +394,37 @@ body {
     min-width: 100vw;
     min-height: 100vh;
     background: coral;
-
+    display: flex;
+    align-items: flex-start;
+    #logout-btn {
+        @include lg {
+            flex-grow: 1;
+        }
+        flex: 0 1 10%;
+        flex-wrap: wrap;
+        padding: 0.5em 1em;
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        margin: 0.6em 0 0 0.6em;
+        cursor: pointer;
+        border: none;
+        border-radius: 0.5em;
+        color: #ffeb3b;
+        background: linear-gradient(32deg, rgba(132,88,168,1) 39%, rgba(221,48,83,1) 100%);
+        background-size: 200% 100%;
+        background-position:left bottom;
+        transition: ease-in-out 200ms;
+        transition:all 600ms ease;
+        svg {
+            max-width: 1em;
+            max-height: 1em;
+            fill: #ffeb3b;
+        }
+    }
+    #logout-btn:hover {
+        background-position:right bottom;
+    }
     .accordions-wrapper {
         max-width: 60%;
         margin: 0 auto;
@@ -368,15 +432,15 @@ body {
         flex-direction: column;
         gap: 2em;
         padding: 2em;
-        background: aliceblue;
+        background: rgba(240, 248, 255, .6);
         height: fit-content;
         max-height: 100vh;
         overflow-y: scroll;
+        flex: 1 1 60%;
         .accordion {
             display: flex;
             flex-direction: column;
             padding: 1em;
-            background: antiquewhite;
             .accordion-header {
                 display: flex;
                 gap: 2em;
@@ -411,6 +475,7 @@ body {
         }
     }
 }
+
 
 @keyframes gradient-bg {
 	0% {
